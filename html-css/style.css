@@ -1,79 +1,95 @@
+/* ========== RESET GLOBAL ========== */
 * {
     margin: 0;
-    padding: 0px;
-    box-sizing: border-box;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
 }
 
+/* ========== ESTILOS GERAIS DO BODY ========== */
 body {
-    font-family: "Rubik", Arial, sans-serif;
-    line-height: 1.6;
+    font-family: "Rubik", Arial, sans-serif; /* Fonte padrão do site */
+    line-height: 1.6; /* Espaçamento entre linhas */
 }
 
+/* Estilos para todos os títulos */
 h1, h2, h3, h4 {
-    font-family: "Archivo", Arial, sans-serif;
-    font-weight: 800;
-    font-stretch: 80%;       
-    letter-spacing: -0.01em;
-    line-height: 1.05;
+    font-family: "Archivo", Arial, sans-serif; /* Fonte dos títulos */
+    font-weight: 800; /* Negrito bem forte */
+    font-stretch: 80%; /* Comprime um pouco a fonte horizontalmente */
+    letter-spacing: -0.01em; /* Espaçamento entre letras (mais apertado) */
+    line-height: 1.05; /* Linhas bem próximas */
 }
 
+/* ========== CABEÇALHO ========== */
 .container-header {
-    background-color: rgb(177, 177, 177);
+    background-color: #2a2a2a; /* Fundo cinza escuro */
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    align-items: center;
-    margin: auto;
+    flex-direction: row; /* Itens lado a lado */
+    justify-content: space-around; /* Espaça logo e menu */
+    align-items: center; /* Alinha verticalmente ao centro */
+    padding: 16px 24px; /* Espaço interno */
 }
 
 .container-header img {
-    height: 150px;   
-    margin-right: 100px;
+    height: 150px; /* Altura da logo */
     display: block;
 }
 
-.a1 {
-    position: relative;
-    display: inline-block;
-    color: #d4693b;
-    font-family: "Rubik", Arial, sans-serif;
-    font-weight: 400;
-    list-style: none;
-    text-decoration: none;
-    margin: 10px;
+/* ========== LINKS DO MENU ========== */
+.nav-ol {
+    list-style: none; /* Remove numeração */
+    display: flex;
+    gap: 20px; /* Espaço entre os links */
 }
 
+.a1 {
+    position: relative; /* Necessário para o sublinhado animado */
+    display: inline-block;
+    color: #d4693b; /* Cor laranja/terracota */
+    font-family: "Rubik", Arial, sans-serif;
+    font-weight: 400;
+    text-decoration: none; /* Remove sublinhado padrão */
+    padding: 8px 0; /* Espaço ao redor do link */
+}
+
+/* Sublinhado decorativo abaixo dos links */
 .a1::after {
-    content: "";
+    content: ""; /* Cria um elemento vazio */
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: 40%;
+    width: 40%; /* Começa com 40% de largura */
     height: 2px;
     background-color: #d4693b;
+    transition: width 0.3s ease; /* Anima o crescimento */
 }
 
+/* Quando passa o mouse, o sublinhado cresce até 100% */
 .a1:hover::after {
     width: 100%;
 }
 
+/* ========== CONTAINER PRINCIPAL ========== */
 .main-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Empilha as seções verticalmente */
     justify-content: center;
     align-items: center;
     padding: 12px 24px;
-    margin: 0px 16px;
+    margin: 0 16px;
 }
 
+/* ========== TÍTULO "LANÇAMENTO" ========== */
 .lancamento h2 {
-    color: transparent;
-    -webkit-text-stroke: 1.5px #d4693b;
+    color: transparent; /* Texto transparente */
+    -webkit-text-stroke: 1.5px #d4693b; /* Contorno laranja */
     font-weight: 700;
     font-size: 50px;
-    font-stretch: 125%;
+    font-stretch: 125%; /* Estica a fonte */
     padding-bottom: 10px;
 }
+
+/* ========== SEÇÃO 1: IMAGEM PRINCIPAL E DESCRIÇÃO ========== */
 .container-section1 {
     display: flex;
 }
@@ -85,14 +101,16 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
+/* Imagem principal do produto */
 .demo {
     width: 100%;
-    max-width: 700px;
-    height: auto;
+    max-width: 700px; /* Largura máxima */
+    height: auto; /* Mantém proporção */
     display: block;
+    /* Bordas arredondadas assimétricas (efeito moderno) */
     border-top-left-radius: 15px;
     border-top-right-radius: 3px;
-    border-bottom-left-radius:3px;
+    border-bottom-left-radius: 3px;
     border-bottom-right-radius: 15px;
 }
 
@@ -102,31 +120,230 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
+/* Parágrafo de descrição */
 .p-descricao {
     padding-top: 20px;
     padding-bottom: 20px;
-    max-width: 65ch;
+    max-width: 65ch; /* Limita a largura para melhor leitura (65 caracteres) */
 }
 
-.container-section2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 305px;
+/* ========== SEÇÃO 2: GALERIA DE FOTOS (FORMATO T) ========== */
+.container-section2 img {
+    width: 320px; /* Largura fixa das imagens */
+    height: auto; /* Mantém proporção */
 }
 
-.container-section2 img{
-    display: flex;
-    flex-direction: row;
-    width: 305px;
-}
-
+/* Container que organiza as fotos em formato T */
 .article {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Empilha: laterais em cima, traseira embaixo */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 4px; /* Espaço entre os blocos */
 }
+
+/* Imagens laterais (lado a lado) */
+.laterais {
+    display: flex;
+    flex-direction: row; /* Lado a lado */
+    gap: 4px; /* Espaço entre as duas imagens */
+}
+
+/* Bordas arredondadas da imagem ESQUERDA */
+.laterais img:first-child {
+    border-top-left-radius: 16px; /* Canto superior esquerdo */
+    border-bottom-left-radius: 16px; /* Canto inferior esquerdo */
+    border-top-right-radius: 6px; /* Canto superior direito (menos arredondado) */
+}
+
+/* Bordas arredondadas da imagem DIREITA */
+.laterais img:last-child {
+    border-top-right-radius: 16px; /* Canto superior direito */
+    border-bottom-right-radius: 16px; /* Canto inferior direito */
+    border-top-left-radius: 6px; /* Canto superior esquerdo (menos arredondado) */
+}
+
+/* Bordas da imagem traseira */
+.traseira {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+/* ========== SEÇÃO 3: INFORMAÇÕES DE RESERVA ========== */
+.container-section3 {
+    background-color: #f5f5f5; /* Fundo cinza claro */
+    padding: 40px 24px;
+    margin-top: 40px;
+    width: 100%; /* Largura total */
+}
+
+.section3 {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza */
+}
+
+/* Card de informações */
+.reservar {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 32px;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título pequeno "RESERVAR" */
+.reservar h4:first-child {
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    color: #666; /* Cinza médio */
+    margin-bottom: 12px;
+    text-transform: uppercase; /* Caixa alta */
+}
+
+/* Nome do produto */
+.reservar h3 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+/* Detalhes do produto (SKU, Preço, Data) */
+.detalhes-produto {
+    display: flex;
+    flex-wrap: wrap; /* Quebra linha em telas pequenas */
+    gap: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0; /* Linha divisória */
+}
+
+.detalhes-produto h4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 600; /* Negrito */
+    color: #000;
+}
+
+/* Valores dentro dos detalhes (ex: "IU8042-001", "$ 175") */
+.detalhes-produto h4 span {
+    font-weight: 400; /* Peso normal */
+    color: #666; /* Cinza médio */
+}
+
+/* ========== RODAPÉ ========== */
+.footer {
+    background-color: #1a1a1a; /* Fundo preto/cinza muito escuro */
+    color: #ffffff;
+    padding: 60px 24px 40px;
+    margin-top: 60px;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 24px 40px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.footer-container h3 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.footer-container p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    margin-top: 16px;
+}
+
+.form-group {
+    display: flex;
+    gap: 8px;
+}
+
+.form-group input[type="email"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+.form-group input[type="email"]::placeholder {
+    color: #666;
+}
+
+.form-group input[type="email"]:focus {
+    outline: none;
+    border-color: #d4693b;
+}
+
+.form-group button {
+    padding: 12px 24px;
+    background-color: #d4693b;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #b85a30;
+}
+
+/* Links de Redes Sociais */
+.footer-container ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-container ol a {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-container ol a:hover {
+    color: #d4693b;
+}
+
 
 
 
